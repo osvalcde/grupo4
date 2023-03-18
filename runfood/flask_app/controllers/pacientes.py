@@ -45,7 +45,7 @@ def edit_recipe(id):
     paciente_data = {
         "id":session['user_id']
     }
-    return render_template("edit_paciente.html",edit=Paciente.get_one(data),paciente=Paciente.get_by_id(paciente_data))
+    return render_template("edit_paciente.html",edit=Paciente.get_one(data))
 
 @app.route('/update/placiente',methods=['POST'])
 def update_paciente():
