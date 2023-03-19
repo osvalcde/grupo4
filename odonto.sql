@@ -22,7 +22,7 @@ USE `odonto` ;
 -- Table `odonto`.`doctores`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `odonto`.`doctores` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NULL DEFAULT NULL,
   `apellido` VARCHAR(45) NULL DEFAULT NULL,
   `ruc` VARCHAR(45) NULL DEFAULT NULL,
