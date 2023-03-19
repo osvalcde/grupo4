@@ -7,7 +7,7 @@ from flask_app.models.consulta import Consulta
 @app.route('/odonto/agendarse')
 def pagendarse():
     if 'user_name' in session:
-        return render_template('agendarse.html',user=session['user_name'], tratamientos=)
+        return render_template('agendarse.html',user=session['user_name'])#aca falta conseguir los tratamientos que tenemos para pasar al template y poder mostrarlos con <select><option>, tratamientos=)
     else:
         flash('Tienes que iniciar sesión!')
         return redirect('/odonto')
