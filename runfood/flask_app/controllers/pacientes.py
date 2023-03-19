@@ -82,7 +82,7 @@ def show_updated(id):
     paciente_data = {
         "id":session['user_id']
     }
-    return render_template("show_paciente.html",paciente=Paciente.get_one(data),paciente=Paciente.get_by_id(paciente_data))
+    return render_template("show_paciente.html",paciente=Paciente.get_one(data))
 
 @app.route('/destroy/paciente/<int:id>')
 def destroy_paciente(id):
