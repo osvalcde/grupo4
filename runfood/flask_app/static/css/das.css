@@ -1,0 +1,19 @@
+body {
+    background: url("../img/odonto.png");
+    padding: 30px;
+}
+#logout_btn {
+    width: 150px;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.card {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 50px;
+    padding: 20px;
+}

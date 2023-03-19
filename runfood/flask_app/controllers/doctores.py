@@ -8,6 +8,9 @@ bcrypt = Bcrypt(app)
 @app.route('/')
 def index():
     return render_template('index.html')
+@app.route('/ingresar')
+def ingresar():
+    return render_template('inicio.html')
 
 @app.route('/register',methods=['POST'])
 def register():
@@ -53,9 +56,10 @@ def dashboard():
     data ={
         'id': session['user_id']
     }
-    return render_template("doctor.html",user=Doctor.get_by_id(data),paciente=Paciente.get_all())
+    return render_template("dashboard.html",user=Doctor.get_by_id(data),paciente=Paciente.get_all())
 
 @app.route('/logout')
 def logout():
     session.clear()
     return redirect('/')
+
