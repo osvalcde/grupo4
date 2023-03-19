@@ -19,7 +19,7 @@ def create_paciente():
     if 'user_id' not in session:
         return redirect('/logout')
     if not Paciente.validate_pacientes(request.form):
-        return redirect('/new/placiente')
+        return redirect('/new/paciente')
     data = {
         "nombre": request.form["nombre"],
         "apellido": request.form["apellido"],
@@ -47,7 +47,7 @@ def edit_recipe(id):
     }
     return render_template("edit_paciente.html",edit=Paciente.get_one(data))
 
-@app.route('/update/placiente',methods=['POST'])
+@app.route('/update/paciente',methods=['POST'])
 def update_paciente():
     if 'user_id' not in session:
         return redirect('/logout')
