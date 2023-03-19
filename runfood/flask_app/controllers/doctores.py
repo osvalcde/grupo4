@@ -35,6 +35,7 @@ def register():
 def login():
     if (request.form.get('email') == '') or (request.form.get('password') == ''):
         flash("email o password invalido!","login")
+        return redirect('/ingresar')
     else:
         data = {
             'email':request.form.get('email')
@@ -42,10 +43,10 @@ def login():
         user = Doctor.get_by_email(data)
         if not user:
             flash("Email invalido","login")
-            return redirect('/')
+            return redirect('/ingresar')
         if not bcrypt.check_password_hash(user.password, request.form['password']):
             flash("Password invalido","login")
-            return redirect('/')
+            return redirect('/ingresar')
         session['user_id'] = user.id
     return redirect('/dashboard')
 
