@@ -6,37 +6,50 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!-- CSS only -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-        <title>clienters</title>
+        <title>Odonto | Clientes</title>
+        <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="icon">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/clientes.css') }}">
+        <link rel="stylesheet" href="../static/css/clientes.css">
     </head>
     <body>
-        <h1 class="text-center">Los usuarios del sistema son:</h1>
-        <p></p>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Email</th>
-                    <th>Created At</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody> 
-                {% for cliente in clientes %}  <!-- esta parte hay que checkear que este correcta -->
-                <tr>
-                    <td>{{ cliente.nombre }}</td>
-                    <td>{{ cliente.apellido }}</td>
-                    <td>{{ cliente.email }}</td>
-                    <td>{{ cliente.created_at.strftime("%b %d %Y") }}</td>
-                    <td>
-                        <a href="/cliente/show/{{ cliente.id }}">Show</a> | <a href="/cliente/edit/{{ cliente.id }}">Edit</a> |
-                        <a href="/cliente/destroy/{{ cliente.id }}">Delete</a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        <a href="/cliente/new" class="btn btn-primary">Add a cliente</a>
+        <nav class="d-flex justify-content-between align-items-center col-12">
+            <div class="d-flex col-4 justify-content-around"> 
+                <a href="/dashboard" class="btn btn-primary" id="volver_btn">Volver</a> 
+            </div> 
+            <img id="logo" src="../static/img/favicon.png" alt="logo">
+            <div class="d-flex col-4 justify-content-around"> 
+                <a href="/logout" class="btn btn-danger" id="logout_btn">Logout</a> 
+            </div> 
+        </nav>
+        <div class="container">
+            <h1 class="text-center">Los usuarios del sistema son:</h1>
+            <table class="table table-hover">
+                <thead class="badge-dark">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Email</th>
+                        <th>Creado</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody> 
+                    {% for cliente in clientes %}  <!-- esta parte hay que checkear que este correcta -->
+                    <tr>
+                        <td>{{ cliente.nombre }}</td>
+                        <td>{{ cliente.apellido }}</td>
+                        <td>{{ cliente.email }}</td>
+                        <td>{{ cliente.created_at.strftime("%b %d %Y") }}</td>
+                        <td>
+                            <a href="/cliente/show/{{ cliente.id }}">Show</a> | <a href="/cliente/edit/{{ cliente.id }}">Edit</a> |
+                            <a href="/cliente/destroy/{{ cliente.id }}">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="/cliente/new" class="btn btn-primary">Agregar cliente</a>
+        </div>
     </body>
 </html>
 

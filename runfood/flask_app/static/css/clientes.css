@@ -1,0 +1,19 @@
+body {
+    background: url(../img/fondo.png) no-repeat center center fixed;
+    font-family: 'Roboto', sans-serif;
+}
+.container {
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,219,45,0.6951155462184874) 100%);
+    margin-top: 50px;
+    padding: 50px;
+    border-radius: 10px;
+}
+.text-center {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 50px;
+    color: #fff;
+    font-style: italic;
+}
+#logo {
+    width: 50px;
+}
