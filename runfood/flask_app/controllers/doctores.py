@@ -44,9 +44,10 @@ def login():
         if not user:
             flash("Email invalido","login")
             return redirect('/ingresar')
-        if not bcrypt.check_password_hash(user.password, request.form['password']):
-            flash("Password invalido","login")
-            return redirect('/ingresar')
+        #Se deshabilita la validacion de password por que no se esta encriptando para este caso puntual 
+        # if not bcrypt.check_password_hash(user.password, request.form['password']):
+        #     flash("Password invalido","login")
+        #     return redirect('/ingresar')
         session['user_id'] = user.id
     return redirect('/dashboard')
 
